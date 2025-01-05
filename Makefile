@@ -1,13 +1,8 @@
 PORT ?= 10000
 MANAGE := uv run python manage.py
 
-.PHONY: install
 install:
-	@uv install
-
-.PHONY: test
-test:
-	@uv run pytest
+	uv install
 
 .PHONY: setup
 setup: db-clean install migrate
