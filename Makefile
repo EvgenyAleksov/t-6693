@@ -10,7 +10,6 @@ setup: db-clean install migrate
 migrate:
 	@$(MANAGE) migrate
 
-
 lint:
 	uv run ruff check t_6693
 
