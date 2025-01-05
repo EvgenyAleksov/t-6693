@@ -1,0 +1,20 @@
+{% extends 'list.html' %}
+
+{% block href_create %}{% url 'comp_miss_create' %}{% endblock %}
+
+
+{% block th %}
+<th>Миссия 1-2</th>
+<th>Описание</th>
+{% endblock %}
+
+{% block td %}
+<td align="center">{{ res.name }}</td>
+<td>
+    {{ res.descr_1|linebreaksbr }}
+    <br>
+    {{ res.descr_2|linebreaksbr }}
+  </td>
+{% endblock %}
+
+{% block href_update %}{% url 'comp_miss_update' res.id %}{% endblock %}

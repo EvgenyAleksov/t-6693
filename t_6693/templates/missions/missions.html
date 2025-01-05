@@ -1,0 +1,15 @@
+{% extends 'list.html' %}
+
+{% block href_create %}{% url 'mission_create' %}{% endblock %}
+
+{% block th %}
+<th>Миссия</th>
+<th>Описание</th>
+{% endblock %}
+
+{% block td %}
+<td align="center">{{ res.id }}</td>
+<td>{{ res.descr|linebreaksbr }}</td>
+{% endblock %}
+
+{% block href_update %}{% url 'mission_update' res.id %}{% endblock %}

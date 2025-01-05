@@ -1,0 +1,74 @@
+{% extends 'calc.html' %}
+
+{% block form %}
+
+<div class="d-grid gap-2 d-md-flex justify-content-md-end">
+  <a class="btn btn-outline-info" href="{% url 'calc_2_pdf' %}" target="_blank">PDF</a>
+</div>
+
+<table class="table table-striped table-hover table-borderless my-4">
+  <thead class="thead-dark bg-warning" style="--bs-bg-opacity: .5;">
+    <tr>
+      <th>{{ name_1 }}</th>
+    </tr>
+  </thead>
+  <tbody>
+    <th>ЧС {{ res_1.num_consc }}</th>
+    <th>ЧБО {{ res_1.comm.id }}</th>
+    <th>Миссия {{ res_1.miss.id }}</th>
+    </tr>
+  </tbody>
+</table>
+
+<table class="table table-striped table-hover table-borderless my-4">
+  <thead class="thead-dark bg-warning" style="--bs-bg-opacity: .5;">
+    <tr>
+      <th>{{ name_2 }}</th>
+    </tr>
+  </thead>
+  <tr>
+    <th>ЧС {{ res_2.num_consc }}</th>
+    <th>ЧБО {{ res_2.comm.id }}</th>
+    <th>Миссия {{ res_2.miss.id }}</th>
+  </tr>
+</table>
+
+<table class="table table-striped table-hover table-borderless my-4">
+  <thead class="thead-dark bg-warning" style="--bs-bg-opacity: .5;">
+    <tr>
+      <th>ЧБО {{ res_1.comm.id }} + ЧБО {{ res_2.comm.id }}</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        {% if not user.is_authenticated %}
+        {{ res_comp_comm.comp_comm.descr_1|linebreaksbr }}
+        {% else %}
+        {{ res_comp_comm.comp_comm.descr_2|linebreaksbr }}
+        {% endif %}
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="table table-striped table-hover table-borderless my-4">
+  <thead class="thead-dark bg-warning" style="--bs-bg-opacity: .5;">
+    <tr>
+      <th>Миссия {{ res_1.miss.id }} + Миссия {{ res_2.miss.id }}</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        {% if not user.is_authenticated %}
+        {{ res_comp_miss.comp_miss.descr_1|linebreaksbr }}
+        {% else %}
+        {{ res_comp_miss.comp_miss.descr_2|linebreaksbr }}
+        {% endif %}
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+{% endblock %}

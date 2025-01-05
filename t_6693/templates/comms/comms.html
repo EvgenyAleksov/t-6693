@@ -1,0 +1,16 @@
+{% extends 'list.html' %}
+
+{% block href_create %}{% url 'comm_create' %}{% endblock %}
+
+{% block th %}
+<th>ЧБО</th>
+<th>Описание</th>
+{% endblock %}
+
+
+{% block td %}
+<td align="center">{{ res.id }}</td>
+<td>{{ res.descr|linebreaksbr }}</td>
+{% endblock %}
+
+{% block href_update %}{% url 'comm_update' res.id %}{% endblock %}

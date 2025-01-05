@@ -1,0 +1,19 @@
+{% extends 'list.html' %}
+
+{% block href_create %}{% url 'user_create' %}{% endblock %}
+
+{% block th %}
+<th>№</th>
+<th>Имя</th>
+<th>e-mail</th>
+{% endblock %}
+
+
+{% block td %}
+<td align="center">{{ res.id }}</td>
+<td>{{ res.username }}</td>
+<td>{{ res.email }}</td>
+{% endblock %}
+
+
+{% block href_update %}{% url 'user_update' res.id %}{% endblock %}

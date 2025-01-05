@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1 class="my-4">{{ title }}</h1>
+{% if rec_count < rec_limit %} <a class="btn btn-primary" href="{% block href_create %}{% endblock %}">Создать</a>{% endif %}
+
+  <table class="table table-striped table-hover table-borderless my-4">
+    <thead align="center" class="thead-dark bg-warning" style="--bs-bg-opacity: .5;">
+      <tr>
+        {% block th %}{% endblock %}
+      </tr>
+    </thead>
+    <tbody>
+      {% if result %}
+      {% for res in result %}
+      <tr>
+        {% block td %}{% endblock %}
+        <td><a href="{% block href_update %}{% endblock %}">Изменить</a></td>
+      </tr>
+      {% endfor %}
+      {% else %}
+      <tr>
+        <td colspan="7">
+          Записей пока нет
+        </td>
+      </tr>
+      {% endif %}
+    </tbody>
+  </table>
+  {% endblock %}

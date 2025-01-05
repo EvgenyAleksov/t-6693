@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  {% load django_bootstrap5 %}
+  {% bootstrap_css %}
+  {% bootstrap_javascript %}
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>t-6693</title>
+</head>
+
+<body class="container d-flex flex-column min-vh-100">
+
+  <header class="d-flex justify-content-center py-3">
+
+    <div class="container">
+
+      <nav class="navbar navbar-expand-lg navbar-light bg-light ms-3">
+
+        <a class="navbar-brand" href="{% url 'index' %}">
+          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="24" fill="currentColor"
+            class="bi bi-house align-text-top" viewBox="0 0 16 16">
+            <path
+              d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293zM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5z" />
+          </svg>
+          Главная
+        </a>
+
+        <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarToggleExternalContent">
+
+          <ul class="navbar-nav mr-auto">
+
+            <li class="nav-item"">
+              <a class=" nav-link" href="{% url 'calc_1' %}">Калькулятор-1</a>
+            </li>
+
+            <li class="nav-item"">
+              <a class=" nav-link" href="{% url 'calc_2' %}">Калькулятор-2</a>
+            </li>
+
+            {% if user.is_authenticated %}
+
+            <li class="nav-item"">
+            <a class=" nav-link" href="{% url 'comm_list' %}">ЧБО</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'mission_list' %}">Миссия</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'inspiration_list' %}">Вдохновение</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'comp_comm_list' %}">Совм-ЧБО</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'comp_miss_list' %}">Совм-Миссия</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'user_list' %}">Пользователи</a>
+            </li>
+
+            <li class="nav-item">
+              <form action="{% url 'logout' %}" method="post">
+                {% csrf_token %}
+                <input class="btn nav-link" type="submit" value='Выход'>
+              </form>
+            </li>
+
+            {% else %}
+
+            <li class="nav-item">
+              <form method="post">
+                {% csrf_token %}
+                <a class="nav-link" href="{% url 'login' %}">Вход</a>
+              </form>
+            </li>
+
+            {% endif %}
+
+          </ul>
+
+        </div>
+
+      </nav>
+
+    </div>
+
+  </header>
+
+  {% bootstrap_messages %}
+
+  <div class="container wrapper flex-grow-1 my-4">
+    {% block content %}{% endblock %}
+  </div>
+
+  <footer>
+    <div class="container my-5 pt-4 border-top">
+    </div>
+  </footer>
+
+</body>
+
+</html>
