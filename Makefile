@@ -3,7 +3,7 @@ MANAGE := uv run python manage.py
 
 .PHONY: install
 install:
-	@uv sync
+	@uv install
 
 .PHONY: test
 test:
