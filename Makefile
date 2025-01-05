@@ -2,8 +2,8 @@ PORT ?= 10000
 MANAGE := uv run python manage.py
 
 install:
-	uv install
-
+	uv sync
+	
 .PHONY: setup
 setup: db-clean install migrate
 
@@ -19,4 +19,7 @@ dev:
 	$(MANAGE) runserver
 
 start:
-	uv run gunicorn --workers=5 --bind=0.0.0.0:$(PORT) t_6693.wsgi
+	uv run gunicorn -w 5 -b 0.0.0.0:$(PORT) t_6693.wsgi
+
+render-start:
+	gunicorn -w 5 -b 0.0.0.0:$(PORT) t_6693.wsgi
