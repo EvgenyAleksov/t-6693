@@ -11,6 +11,7 @@ dependencies = [
     "dj-database-url>=2.3.0",
     "python-dotenv>=1.0.1",
     "django-renderpdf>=4.0.0",
+    "gunicorn>=23.0.0",
 ]
 
 [dependency-groups]
