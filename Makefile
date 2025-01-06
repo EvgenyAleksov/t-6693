@@ -13,8 +13,8 @@ install:
 db-clean:
 	@rm db.sqlite3 || true
 
-migrate:
-	@$(MANAGE) migrate
+# migrate:
+# 	@$(MANAGE) migrate
 
 shell:
 	@$(MANAGE) shell_plus --ipython
