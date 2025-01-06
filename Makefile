@@ -26,7 +26,9 @@ dev:
 	$(MANAGE) runserver
 
 start:
-	uv run gunicorn -w 5 -b 0.0.0.0:$(PORT) t_6693.wsgi
+	# uv run gunicorn -w 5 -b 0.0.0.0:$(PORT) t_6693.wsgi
+	uv run python -m gunicorn t_6693.asgi:application -k uvicorn.workers.UvicornWorker
+
 
 render-start:
 	gunicorn -w 5 -b 0.0.0.0:$(PORT) t_6693.wsgi
