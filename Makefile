@@ -1,4 +1,4 @@
-PORT ?= 10000
+PORT ?= 8000
 MANAGE := uv run python manage.py
 
 build:
@@ -26,7 +26,7 @@ dev:
 	$(MANAGE) runserver
 
 start:
-	poetry run gunicorn --workers=5 --bind=0.0.0.0:$(PORT) t_6693.wsgi 
+	uv run gunicorn -w 5 -b 0.0.0.0:$(PORT) t_6693.wsgi
 
 render-start:
 	gunicorn -w 5 -b 0.0.0.0:$(PORT) t_6693.wsgi
