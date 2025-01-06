@@ -4,6 +4,9 @@ MANAGE := uv run python manage.py
 install:
 	uv sync
 	
+build:
+	./build.sh
+
 .PHONY: setup
 setup: db-clean install migrate
 
