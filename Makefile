@@ -20,8 +20,5 @@ dev:
 	uv run ruff check t_6693
 	$(MANAGE) runserver
 
-start:
-	uv run gunicorn -w 5 -b 0.0.0.0:$(PORT) t_6693.wsgi
-
 render-start:
 	gunicorn -w 5 -b 0.0.0.0:$(PORT) t_6693.wsgi
