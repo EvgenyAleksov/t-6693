@@ -7,13 +7,13 @@ from t_6693.calc.views import (  # type: ignore
     Calc_2_View,
 )
 
-description = "Описание"
+descr = "PDF"
 
 urlpatterns = [
     path("1", Calc_1_View.as_view(), name="calc_1"),
     path("2", Calc_2_View.as_view(), name="calc_2"),
     path(
-        f"{description}",
+        f"Описание {descr}",
         Calc_1_PDF_View.as_view(),
         name="calc_1_pdf",
     ),
