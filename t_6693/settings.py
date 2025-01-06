@@ -52,7 +52,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django_bootstrap5',
-    'django_filters',
     't_6693',
     't_6693.users.apps.UsersConfig',
     't_6693.calc',
