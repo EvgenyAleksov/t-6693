@@ -1,27 +1,32 @@
-PORT ?= 8000
+PORT ?= 10000
 MANAGE := uv run python manage.py
 
-install:
-	uv sync
-	
 build:
 	./build.sh
 
-.PHONY: setup
-setup: db-clean install migrate
+setup:
+	db-clean install migrate
+
+install:
+	uv sync
+
+db-clean:
+	@rm db.sqlite3 || true
 
 migrate:
 	@$(MANAGE) migrate
+
+shell:
+	@$(MANAGE) shell_plus --ipython
 
 lint:
 	uv run ruff check t_6693
 
 dev:
-	uv run ruff check t_6693
 	$(MANAGE) runserver
 
 start:
-	poetry run gunicorn --workers=5 --bind=0.0.0.0:$(PORT) 
+	poetry run gunicorn --workers=5 --bind=0.0.0.0:$(PORT) t_6693.wsgi 
 
 render-start:
 	gunicorn -w 5 -b 0.0.0.0:$(PORT) t_6693.wsgi
