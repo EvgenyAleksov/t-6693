@@ -29,4 +29,4 @@ start:
 	uv run gunicorn --workers=5 --bind=0.0.0.0:$(PORT) t_6693:wsgi
 
 render-start:
-	gunicorn --workers=5 --bind=0.0.0.0:$(PORT) t_6693.wsgi:app
+	gunicorn --workers=5 --bind=0.0.0.0:$(PORT) t_6693:wsgi
