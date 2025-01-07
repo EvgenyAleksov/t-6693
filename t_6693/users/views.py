@@ -1,3 +1,5 @@
+from django.contrib.auth.forms import PasswordChangeForm  # type: ignore
+from django.contrib.auth.views import PasswordChangeView  # type: ignore
 from django.contrib.messages.views import SuccessMessageMixin  # type: ignore
 from django.urls import reverse_lazy  # type: ignore
 from django.views.generic import (  # type: ignore
@@ -7,8 +9,22 @@ from django.views.generic import (  # type: ignore
 )
 
 from t_6693.mixins import ProjectLoginRequiredMixin  # type: ignore
-from t_6693.users.forms import UserForm, UserUpdateForm  # type: ignore
+from t_6693.users.forms import (  # type: ignore
+    UserForm,
+    UserUpdateForm,
+)
 from t_6693.users.models import CustomUser  # type: ignore
+
+
+class PasswordUpdateView(
+    ProjectLoginRequiredMixin, SuccessMessageMixin, PasswordChangeView
+):
+    model = CustomUser
+    form_class = PasswordChangeForm
+    template_name = "object.html"
+    success_url = reverse_lazy("user_list")
+    success_message = "Пароль успешно сменён"
+    extra_context = {"title": "Сменить пароль", "button_text": "Сменить"}
 
 
 class UserListView(ProjectLoginRequiredMixin, ListView):

@@ -13,7 +13,7 @@ dependencies = [
     "python-dotenv>=1.0.1",
     "django-renderpdf>=4.0.0",
     "psycopg2-binary>=2.9.10",
-    "gunicorn>=22.0.0",
+    "gunicorn>=23.0.0",
 ]
 
 [dependency-groups]

@@ -14,7 +14,7 @@ class IndexView(TemplateView):
 
 
 class LoginUser(SuccessMessageMixin, LoginView):
-    template_name = "login.html"
+    template_name = "users/login.html"
     next_page = reverse_lazy("index")
     success_message = "Вы вошли в систему"
 
