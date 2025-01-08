@@ -32,7 +32,7 @@ class PasswordUpdateView(
 class UserListView(ListView):
     model = CustomUser
     template_name = "users/users.html"
-    # context_object_name = "users"
+    context_object_name = "users"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -53,6 +53,9 @@ class UserCreateView(
     template_name = "object.html"
     success_url = reverse_lazy("user_list")
     success_message = "Запись успешно создана"
+
+    extra_context = {"title": "Создать Пользователя", "button_text": "Создать"}
+
 
     # def get_context_data(self, **kwargs):
     #     context = super().get_context_data(**kwargs)
