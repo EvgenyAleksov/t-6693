@@ -13,8 +13,8 @@ install:
 db-clean:
 	@rm db.sqlite3 || true
 
-# migrate:
-# 	@$(MANAGE) migrate
+migrate:
+	@$(MANAGE) migrate
 
 shell:
 	@$(MANAGE) shell_plus --ipython
@@ -30,5 +30,3 @@ start:
 
 render-start:
 	gunicorn --workers=5 --bind=0.0.0.0:$(PORT) t_6693.wsgi
-
-	# gunicorn -w 5 -b 0.0.0.0:$(PORT) t_6693:wsgi
