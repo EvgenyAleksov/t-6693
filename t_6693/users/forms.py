@@ -4,7 +4,7 @@ from django.contrib.auth.forms import (  # type: ignore
 )
 from django.forms import CharField  # type: ignore
 
-from t_6693.users.models import CustomUser  # type: ignore
+from t_6693.users.models import User  # type: ignore
 
 
 class UserForm(UserCreationForm):
@@ -12,7 +12,7 @@ class UserForm(UserCreationForm):
     email = CharField(max_length=30, required=True, label="e-mail")
 
     class Meta(UserCreationForm.Meta):
-        model = CustomUser
+        model = User
         fields = ("username", "email")
 
 
@@ -22,5 +22,5 @@ class UserUpdateForm(UserChangeForm):
     password = None
 
     class Meta(UserCreationForm.Meta):
-        model = CustomUser
+        model = User
         fields = ("username", "email")

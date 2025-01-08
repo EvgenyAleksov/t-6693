@@ -13,13 +13,13 @@ from t_6693.users.forms import (  # type: ignore
     UserForm,
     UserUpdateForm,
 )
-from t_6693.users.models import CustomUser  # type: ignore
+from t_6693.users.models import User  # type: ignore
 
 
 class PasswordUpdateView(
     ProjectLoginRequiredMixin, SuccessMessageMixin, PasswordChangeView
 ):
-    model = CustomUser
+    model = User
     form_class = PasswordChangeForm
     template_name = "object.html"
     success_url = reverse_lazy("user_list")
@@ -30,7 +30,7 @@ class PasswordUpdateView(
 # class UserListView(ProjectLoginRequiredMixin, ListView):
 
 class UserListView(ListView):
-    model = CustomUser
+    model = User
     template_name = "users/users.html"
     context_object_name = "users"
 
@@ -41,14 +41,14 @@ class UserListView(ListView):
         # context["rec_count"] = CustomUser.objects.count()
         context["rec_count"] = 0
         context["rec_limit"] = 2
-        context["result"] = CustomUser.objects.all
+        context["result"] = User.objects.all
         return context
 
 
 class UserCreateView(
     SuccessMessageMixin, CreateView
 ):
-    model = CustomUser
+    model = User
     form_class = UserForm
     template_name = "object.html"
     # success_url = reverse_lazy("user_list")
@@ -67,7 +67,7 @@ class UserCreateView(
 class UserUpdateView(
     ProjectLoginRequiredMixin, SuccessMessageMixin, UpdateView
 ):
-    model = CustomUser
+    model = User
     form_class = UserUpdateForm
     template_name = "object.html"
     success_url = reverse_lazy("user_list")
