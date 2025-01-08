@@ -56,11 +56,6 @@ class UserCreateView(
         context = super().get_context_data(**kwargs)
         context["title"] = "Создать Пользователя"
         context["button_text"] = "Создать"
-        try:
-            context["object"] = CustomUser.objects.count() + 1
-        except ObjectDoesNotExist:
-            context["object"] = 1
-        return context
 
 
 class UserUpdateView(
