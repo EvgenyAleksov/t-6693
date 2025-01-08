@@ -55,6 +55,7 @@ class UserCreateView(
         context = super().get_context_data(**kwargs)
         context["title"] = "Создать Пользователя"
         context["button_text"] = "Создать"
+        context["object"] = 1
 
 
 class UserUpdateView(
