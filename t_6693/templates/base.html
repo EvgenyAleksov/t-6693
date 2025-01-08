@@ -43,7 +43,7 @@
               <a class=" nav-link" href="{% url 'calc_2' %}">Калькулятор-2</a>
             </li>
 
-            {% if user.is_authenticated %}
+
 
             <li class="nav-item"">
             <a class=" nav-link" href="{% url 'comm_list' %}">ЧБО</a>
@@ -76,11 +76,7 @@
               </form>
             </li>
 
-            {% else %}
-
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'user_list' %}">Пользователи</a>
-            </li>
+            
 
             <li class="nav-item">
               <form method="post">
@@ -89,6 +85,8 @@
               </form>
             </li>
 
+            {% if user.is_authenticated %}
+            {% else %}
             {% endif %}
 
           </ul>
