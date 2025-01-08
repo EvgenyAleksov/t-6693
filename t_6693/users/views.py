@@ -27,7 +27,7 @@ class PasswordUpdateView(
     extra_context = {"title": "Сменить пароль", "button_text": "Сменить"}
 
 
-class UserListView(ProjectLoginRequiredMixin, ListView):
+class UserListView(ListView):
     model = CustomUser
     template_name = "users/users.html"
     # context_object_name = "users"
