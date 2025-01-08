@@ -54,11 +54,11 @@ class UserCreateView(
     success_url = reverse_lazy("user_list")
     success_message = "Запись успешно создана"
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context["title"] = "Создать Пользователя"
-        context["button_text"] = "Создать"
-        context["object"] = 1
+    # def get_context_data(self, **kwargs):
+    #     context = super().get_context_data(**kwargs)
+    #     context["title"] = "Создать Пользователя"
+    #     context["button_text"] = "Создать"
+    #     context["object"] = 1
 
 
 class UserUpdateView(
