@@ -1,7 +1,6 @@
 from django.contrib.auth.forms import PasswordChangeForm  # type: ignore
 from django.contrib.auth.views import PasswordChangeView  # type: ignore
 from django.contrib.messages.views import SuccessMessageMixin  # type: ignore
-from django.core.exceptions import ObjectDoesNotExist  # type: ignore
 from django.urls import reverse_lazy  # type: ignore
 from django.views.generic import (  # type: ignore
     CreateView,
