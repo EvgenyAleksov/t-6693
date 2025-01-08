@@ -101,13 +101,12 @@ WSGI_APPLICATION = 't_6693.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        # 'NAME': BASE_DIR / 'db.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
 
 if os.getenv('DATABASE_URL'):
-    db_from_env = dj_database_url.config(conn_max_age=600)
+    db_from_env = dj_database_url.config(conn_max_age=600, conn_health_checks=True,)
     DATABASES['default'].update(db_from_env)
 
 
