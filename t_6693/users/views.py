@@ -27,7 +27,9 @@ class PasswordUpdateView(
     extra_context = {"title": "Сменить пароль", "button_text": "Сменить"}
 
 
-class UserListView(ProjectLoginRequiredMixin, ListView):
+# class UserListView(ProjectLoginRequiredMixin, ListView):
+
+class UserListView(ListView):
     model = CustomUser
     template_name = "users/users.html"
     # context_object_name = "users"
@@ -36,7 +38,8 @@ class UserListView(ProjectLoginRequiredMixin, ListView):
         context = super().get_context_data(**kwargs)
         context["model"] = "CustomUser"
         context["title"] = "Пользователи"
-        context["rec_count"] = CustomUser.objects.count()
+        # context["rec_count"] = CustomUser.objects.count()
+        context["rec_count"] = 0
         context["rec_limit"] = 2
         context["result"] = CustomUser.objects.all
         return context
