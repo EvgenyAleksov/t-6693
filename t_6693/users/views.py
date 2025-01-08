@@ -1,6 +1,7 @@
 from django.contrib.auth.forms import PasswordChangeForm  # type: ignore
 from django.contrib.auth.views import PasswordChangeView  # type: ignore
 from django.contrib.messages.views import SuccessMessageMixin  # type: ignore
+from django.core.exceptions import ObjectDoesNotExist  # type: ignore
 from django.urls import reverse_lazy  # type: ignore
 from django.views.generic import (  # type: ignore
     CreateView,
@@ -27,7 +28,7 @@ class PasswordUpdateView(
     extra_context = {"title": "Сменить пароль", "button_text": "Сменить"}
 
 
-class UserListView(ListView):
+class UserListView(ProjectLoginRequiredMixin, ListView):
     model = CustomUser
     template_name = "users/users.html"
     # context_object_name = "users"
@@ -55,7 +56,10 @@ class UserCreateView(
         context = super().get_context_data(**kwargs)
         context["title"] = "Создать Пользователя"
         context["button_text"] = "Создать"
-        context["object"] = CustomUser.objects.count() + 1
+        try:
+            context["object"] = CustomUser.objects.count() + 1
+        except ObjectDoesNotExist:
+            context["object"] = 1
         return context
 
 
