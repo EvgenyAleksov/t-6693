@@ -13,6 +13,7 @@ dependencies = [
     "gunicorn>=23.0.0",
     "psycopg2-binary>=2.9.10",
     "dj-database-url>=2.3.0",
+    "weasyprint>=63.1",
 ]
 
 [dependency-groups]

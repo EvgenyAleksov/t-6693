@@ -105,9 +105,9 @@ DATABASES = {
     }
 }
 
-if os.getenv('DATABASE_URL'):
-    db_from_env = dj_database_url.config(conn_max_age=600, conn_health_checks=True,)
-    DATABASES['default'].update(db_from_env)
+# if os.getenv('DATABASE_URL'):
+#     db_from_env = dj_database_url.config(conn_max_age=600, conn_health_checks=True,)
+#     DATABASES['default'].update(db_from_env)
 
 
 # Password validation
