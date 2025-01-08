@@ -1,14 +1,14 @@
-PORT ?= 8000
+PORT ?= 10000
 MANAGE := uv run python manage.py
+
+install:
+	uv sync
 
 build:
 	./build.sh
 
 setup:
 	db-clean install migrate
-
-install:
-	uv sync
 
 db-clean:
 	@rm db.sqlite3 || true
