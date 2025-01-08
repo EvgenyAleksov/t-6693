@@ -1,4 +1,4 @@
-PORT ?= 10000
+PORT ?= 8000
 MANAGE := uv run python manage.py
 
 build:
