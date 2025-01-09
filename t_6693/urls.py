@@ -13,7 +13,7 @@ urlpatterns = [
     path('совместимость-миссия/', include('t_6693.comps_miss.urls')),
 
     path('пользователи/', include('t_6693.users.urls')),
-    path('вход/', views.LoginUser.as_view(), name='login'),
+    path('123456/', views.LoginUser.as_view(), name='login'),
     path('выход/', views.LogoutUser.as_view(), name='logout'),
 
     path("admin/", admin.site.urls),

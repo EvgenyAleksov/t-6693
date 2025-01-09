@@ -23,22 +23,20 @@ class PasswordUpdateView(
     form_class = PasswordChangeForm
     template_name = "object.html"
     success_url = reverse_lazy("user_list")
-    success_message = "Пароль успешно сменён"
-    extra_context = {"title": "Сменить пароль", "button_text": "Сменить"}
+    success_message = "Пароль успешно изменён"
+    extra_context = {"title": "Изменить пароль", "button_text": "Изменить"}
 
 
-# class UserListView(ProjectLoginRequiredMixin, ListView):
-
-class UserListView(ListView):
+class UserListView(ProjectLoginRequiredMixin, ListView):
     model = User
     template_name = "users/users.html"
-    context_object_name = "users"
+    # context_object_name = "users"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["model"] = "CustomUser"
+        context["model"] = "User"
         context["title"] = "Пользователи"
-        # context["rec_count"] = CustomUser.objects.count()
+        context["rec_count"] = User.objects.count()
         context["rec_count"] = 0
         context["rec_limit"] = 2
         context["result"] = User.objects.all
@@ -46,22 +44,20 @@ class UserListView(ListView):
 
 
 class UserCreateView(
-    SuccessMessageMixin, CreateView
+    ProjectLoginRequiredMixin, SuccessMessageMixin, CreateView
 ):
     model = User
     form_class = UserForm
     template_name = "object.html"
-    # success_url = reverse_lazy("user_list")
-    success_url = reverse_lazy("index")
+    success_url = reverse_lazy("user_list")
     success_message = "Запись успешно создана"
 
-    extra_context = {"title": "Создать Пользователя", "button_text": "Создать"}
-
-    # def get_context_data(self, **kwargs):
-    #     context = super().get_context_data(**kwargs)
-    #     context["title"] = "Создать Пользователя"
-    #     context["button_text"] = "Создать"
-    #     context["object"] = 1
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["title"] = "Создать Пользователя"
+        context["button_text"] = "Создать"
+        context["object"] = 1
+        return context
 
 
 class UserUpdateView(
