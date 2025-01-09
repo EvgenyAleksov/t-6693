@@ -16,6 +16,9 @@ db-clean:
 migrate:
 	@$(MANAGE) migrate
 
+1
+
+
 shell:
 	@$(MANAGE) shell_plus --ipython
 
