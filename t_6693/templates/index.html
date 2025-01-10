@@ -4,16 +4,21 @@
 
 <div class="card">
   <div class="card-body p-5 bg-light">
-    <div class="display-4">Калькуляторы</div>
+
+    <div class="display-6">Калькуляторы</div>
     <p class="lead">Выберите вариант</p>
     <hr>
 
-    <div class="modal-footer d-flex justify-content-around">
+    <div class="container d-flex justify-content-left">
       <a class="btn btn-primary btn-lg" href="{% url 'calc_1' %}">Персонально</a>
+    </div>
+    <br>
+    <div class="container d-flex justify-content-left">
       <a class="btn btn-primary btn-lg" href="{% url 'calc_2' %}">Совместимость</a>
     </div>
 
   </div>
+</div>
 </div>
 
 {% endblock %}

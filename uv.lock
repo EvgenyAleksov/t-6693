@@ -514,7 +514,7 @@ requires-dist = [
     { name = "django", specifier = ">=5.1.4" },
     { name = "django-bootstrap5", specifier = ">=24.3" },
     { name = "django-renderpdf", specifier = ">=4.0.0" },
-    { name = "gunicorn", specifier = ">=22.0.0" },
+    { name = "gunicorn", specifier = ">=23.0.0" },
     { name = "psycopg2-binary", specifier = ">=2.9.10" },
     { name = "python-dotenv", specifier = ">=1.0.1" },
     { name = "weasyprint", specifier = ">=63.1" },
