@@ -33,11 +33,10 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 DEBUG = os.getenv('DEBUG', False)
 # DEBUG = 'True'
 
-
 ALLOWED_HOSTS = [
     'webserver',
     'localhost',
-    '127.0.0.1'
+    '0.0.0.0'
 ]
 
 RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
