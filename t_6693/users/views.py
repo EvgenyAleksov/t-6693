@@ -27,7 +27,7 @@ class PasswordUpdateView(
     extra_context = {"title": "Изменить пароль", "button_text": "Изменить"}
 
 
-class UserListView(ListView):
+class UserListView(ProjectLoginRequiredMixin, ListView):
     model = User
     template_name = "users/users.html"
     # context_object_name = "users"
@@ -44,7 +44,7 @@ class UserListView(ListView):
 
 
 class UserCreateView(
-    SuccessMessageMixin, CreateView
+    ProjectLoginRequiredMixin, SuccessMessageMixin, CreateView
 ):
     model = User
     form_class = UserForm
@@ -61,7 +61,7 @@ class UserCreateView(
 
 
 class UserUpdateView(
-    SuccessMessageMixin, UpdateView
+    ProjectLoginRequiredMixin, SuccessMessageMixin, UpdateView
 ):
     model = User
     form_class = UserUpdateForm
