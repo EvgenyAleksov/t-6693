@@ -56,7 +56,7 @@ def red_single(num):
         if n > 9:
             n = n // 10 + n % 10
         else:
-            return n1
+            return n
 
 
 def get_data(model, data):
