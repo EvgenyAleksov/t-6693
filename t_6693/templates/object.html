@@ -5,15 +5,10 @@
 
 <h1 class="my-4"> {{ title }} {{ object }} </h1>
 
-<form method="post" action="{% url 'confirm' %}">
+<form method="post">
   {% csrf_token %}
   {% bootstrap_form form %}
-
   <input class="btn btn-primary" type="submit" value={{button_text}}>
-
-  <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#confirmModal">{{ button_text }}</button> -->
-  {% include 'confirm.html' %}
-
   <br><br>
   {% if title == "Изменить Пользователя" %}
   <a class="btn btn-outline-warning" href="{% url 'password_update' %}">Сменить пароль</a>
@@ -21,3 +16,7 @@
 </form>
 
 {% endblock %}
+
+<!-- <form method="post" action="{% url 'confirm' %}"> -->
+<!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#confirmModal">{{ button_text }}</button>
+{% include 'confirm.html' %} -->
