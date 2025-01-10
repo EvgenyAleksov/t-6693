@@ -65,9 +65,9 @@
               <a class="nav-link" href="{% url 'comp_miss_list' %}">Совм-Миссия</a>
             </li>
 
-            <!-- <li class="nav-item">
+            <li class="nav-item">
               <a class="nav-link" href="{% url 'user_list' %}">Пользователи</a>
-            </li> -->
+            </li>
 
             <li class="nav-item">
               <form action="{% url 'logout' %}" method="post">
@@ -78,19 +78,19 @@
 
             {% else %}
 
-            <!-- <li class="nav-item">
+            <li class="nav-item">
               <form method="post">
                 {% csrf_token %}
                 <a class="nav-link" href="{% url 'login' %}">Вход</a>
               </form>
-            </li> -->
+            </li>
 
-            <!-- <li class="nav-item">
+            <li class="nav-item">
               <form method="post">
                 {% csrf_token %}
                 <a class="nav-link" href="{% url 'user_create' %}">Регистрация</a>
               </form>
-            </li> -->
+            </li>
 
             {% endif %}
 
