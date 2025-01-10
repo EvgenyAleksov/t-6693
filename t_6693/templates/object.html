@@ -9,9 +9,9 @@
   {% csrf_token %}
   {% bootstrap_form form %}
 
-  <!-- <input class="btn btn-primary" type="submit" value={{button_text}}> -->
+  <input class="btn btn-primary" type="submit" value={{button_text}}>
 
-  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#confirmModal">{{ button_text }}</button>
+  <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#confirmModal">{{ button_text }}</button> -->
   {% include 'confirm.html' %}
 
   <br><br>
