@@ -66,10 +66,6 @@
             </li>
 
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'user_list' %}">Пользователи</a>
-            </li>
-
-            <li class="nav-item">
               <form action="{% url 'logout' %}" method="post">
                 {% csrf_token %}
                 <input class="btn nav-link" type="submit" value='Выход'>
@@ -77,6 +73,10 @@
             </li>
 
             {% else %}
+
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'user_list' %}">Пользователи</a>
+            </li>
 
             <li class="nav-item">
               <form method="post">

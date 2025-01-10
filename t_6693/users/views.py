@@ -44,7 +44,7 @@ class UserListView(ProjectLoginRequiredMixin, ListView):
 
 
 class UserCreateView(
-    ProjectLoginRequiredMixin, SuccessMessageMixin, CreateView
+    SuccessMessageMixin, CreateView
 ):
     model = User
     form_class = UserForm
