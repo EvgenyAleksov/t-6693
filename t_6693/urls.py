@@ -14,7 +14,8 @@ urlpatterns = [
 
     path('пользователи/', include('t_6693.users.urls')),
     path('123456/', views.LoginUser.as_view(), name='login'),
-    path('выход/', views.LogoutUser.as_view(), name='logout'),
-
+    path('654321/', views.LogoutUser.as_view(), name='logout'),
     path("admin/", admin.site.urls),
+
+    path('popup', views.PopUpView.as_view(), name='popup'),
 ]

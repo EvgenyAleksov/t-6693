@@ -34,14 +34,14 @@ class InspirationCreateView(
     template_name = "object.html"
     success_url = reverse_lazy("inspiration_list")
     success_message = "Запись успешно создана"
-
+    
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["title"] = "Создать Вдохновение"
         context["button_text"] = "Создать"
         context["object"] = Inspiration.objects.count() + 1
         return context
-
+ 
 
 class InspirationUpdateView(
     ProjectLoginRequiredMixin, SuccessMessageMixin, UpdateView
@@ -58,3 +58,4 @@ class InspirationUpdateView(
         context["button_text"] = "Изменить"
         context["object"] = self.object.id
         return context
+    

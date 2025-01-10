@@ -23,3 +23,7 @@ class LogoutUser(ProjectRedirectURLMixin, LogoutView):
     next_page = reverse_lazy("index")
     success_message = None
     info_message = "Вы вышли из системы"
+
+
+class PopUpView(TemplateView):
+    template_name = "popup.html"

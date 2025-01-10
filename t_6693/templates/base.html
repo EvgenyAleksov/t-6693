@@ -36,6 +36,10 @@
           <ul class="navbar-nav mr-auto">
 
             <li class="nav-item"">
+              <a class=" nav-link" href="{% url 'popup' %}">PopUp</a>
+            </li>
+
+            <li class="nav-item"">
               <a class=" nav-link" href="{% url 'calc_1' %}">Калькулятор-1</a>
             </li>
 
@@ -65,9 +69,9 @@
               <a class="nav-link" href="{% url 'comp_miss_list' %}">Совм-Миссия</a>
             </li>
 
-            <li class="nav-item">
+            <!-- <li class="nav-item">
               <a class="nav-link" href="{% url 'user_list' %}">Пользователи</a>
-            </li>
+            </li> -->
 
             <li class="nav-item">
               <form action="{% url 'logout' %}" method="post">
