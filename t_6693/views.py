@@ -25,5 +25,5 @@ class LogoutUser(ProjectRedirectURLMixin, LogoutView):
     info_message = "Вы вышли из системы"
 
 
-class PopUpView(TemplateView):
-    template_name = "popup.html"
+class ConfirmView(TemplateView):
+    template_name = "confirm.html"
