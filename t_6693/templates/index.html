@@ -7,8 +7,12 @@
     <div class="display-4">Калькуляторы</div>
     <p class="lead">Выберите вариант</p>
     <hr>
-    <a class="btn btn-primary btn-lg" href="{% url 'calc_1' %}">Персонально</a>
-    <a class="btn btn-primary btn-lg" href="{% url 'calc_2' %}">Совместимость</a>
+
+    <div class="modal-footer d-flex justify-content-around">
+      <a class="btn btn-primary btn-lg" href="{% url 'calc_1' %}">Персонально</a>
+      <a class="btn btn-primary btn-lg" href="{% url 'calc_2' %}">Совместимость</a>
+    </div>
+
   </div>
 </div>
 
