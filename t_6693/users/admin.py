@@ -7,7 +7,7 @@ from t_6693.users.forms import UserForm, UserUpdateForm  # type: ignore
 from t_6693.users.models import User  # type: ignore
 
 
-class CustomUserAdmin(UserAdmin):
+class UserAdmin(UserAdmin):
     add_form = UserForm
     form = UserUpdateForm
     model = User
