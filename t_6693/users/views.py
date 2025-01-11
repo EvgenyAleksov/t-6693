@@ -39,7 +39,7 @@ class UserListView(ProjectLoginRequiredMixin, ListView):
         context["rec_count"] = User.objects.count()
         context["rec_count"] = 0
         context["rec_limit"] = 2
-        context["result"] = User.objects.all.order_by(id)
+        context["result"] = User.objects.all
         return context
 
 

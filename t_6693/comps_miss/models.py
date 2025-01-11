@@ -20,3 +20,6 @@ class Comp_Miss(models.Model):
 
     def __str__(self):
         return self.id
+
+    class Meta:
+        ordering = ['name']

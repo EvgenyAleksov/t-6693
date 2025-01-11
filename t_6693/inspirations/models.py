@@ -9,3 +9,6 @@ class Inspiration(models.Model):
 
     def __str__(self):
         return self.id
+
+    class Meta:
+        ordering = ['id']

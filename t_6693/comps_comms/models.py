@@ -20,3 +20,7 @@ class Comp_Comm(models.Model):
 
     def __str__(self):
         return self.id
+    
+    class Meta:
+        ordering = ['name']
+
