@@ -18,6 +18,7 @@ class CalcForm_1(forms.Form):
         ),
         required=True,
         label="Дата рождения",
+        error_messages={"invalid": "Введите корректную дату"},
     )
 
     def clean_birthday(self):
@@ -41,6 +42,7 @@ class CalcForm_2(forms.Form):
         ),
         required=True,
         label="Дата рождения 1",
+        error_messages={"invalid": "Введите корректную дату"},
     )
     name_2 = forms.CharField(
         max_length=25,
@@ -58,6 +60,7 @@ class CalcForm_2(forms.Form):
         ),
         required=True,
         label="Дата рождения 2",
+        error_messages={"invalid": "Введите корректную дату"},
     )
 
     def clean_birthday_1(self):
@@ -73,4 +76,3 @@ def val_bd(bd):
     if year not in range(1900, 2101):
         raise forms.ValidationError("Допустимое значение года от 1900 до 2100")
     return bd
-
