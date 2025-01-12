@@ -35,7 +35,7 @@ class UserCreateView(
         context["button_text"] = "Создать"
         context["object"] = CustomUser.objects.count() + 1
         return context
-15
+
 
 class UserListView(ProjectLoginRequiredMixin, ListView):
     model = CustomUser
