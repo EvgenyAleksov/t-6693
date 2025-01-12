@@ -3,6 +3,7 @@ from django.urls import path  # type: ignore
 from t_6693.users.views import (  # type: ignore
     PasswordUpdateView,
     UserCreateView,
+    UserDeleteView,
     UserListView,
     UserUpdateView,
 )
@@ -14,4 +15,5 @@ urlpatterns = [
     path(
         "сменить-пароль", PasswordUpdateView.as_view(), name="password_update"
     ),
+    path("<int:pk>/удалить", UserDeleteView.as_view(), name="user_delete"),
 ]

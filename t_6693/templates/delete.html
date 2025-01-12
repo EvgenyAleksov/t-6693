@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1 class="my-4">{% block heading %}{% endblock %}</h1>
+
+<form method="post">
+    {% csrf_token %}
+    <p>Подтвердите удаление записи для {% block object_name %}{% endblock %}</p>
+    <input class="btn btn-outline-danger" type="submit" value="Да, удалить">
+  </form>
+
+{% endblock %}
