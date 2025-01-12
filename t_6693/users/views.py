@@ -33,7 +33,8 @@ class UserCreateView(
         context = super().get_context_data(**kwargs)
         context["title"] = "Создать Пользователя"
         context["button_text"] = "Создать"
-        context["object"] = CustomUser.objects.count() + 1
+        # context["object"] = CustomUser.objects.count() + 1
+        context["object"] = 0
         return context
 
 
