@@ -3,7 +3,7 @@
 
 {% block content %}
 
-<h1 class="my-4">Калькулятор</h1>
+<h1 class="my-4">{% block title %}{% endblock %}</h1>
 <form method="POST" action="#"">
   {% csrf_token %}
   {% bootstrap_form form %}

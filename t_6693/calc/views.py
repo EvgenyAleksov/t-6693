@@ -65,7 +65,9 @@ class Calc_2_View(TemplateView):
             form = CalcForm_2(request.POST or None)
             if form.is_valid():
                 name_1 = form.cleaned_data.get("name_1")
+                name_1 = "Партнёр 1" if name_1 == "" else name_1
                 name_2 = form.cleaned_data.get("name_2")
+                name_2 = "Партнёр 2" if name_2 == "" else name_2
                 bd_1 = form.cleaned_data.get("birthday_1")
                 bd_2 = form.cleaned_data.get("birthday_2")
                 res_1 = calc_num(bd_1)
@@ -82,8 +84,8 @@ class Calc_2_View(TemplateView):
                 )
                 context = {
                     "form": form,
-                    "name_1": name_1 if name_1 else "Партнёр 1",
-                    "name_2": name_2 if name_2 else "Партнёр 2",
+                    "name_1": name_1,
+                    "name_2": name_2,
                     "res_1": res_1,
                     "res_2": res_2,
                     "res_comp_comm": res_comp_comm,
@@ -96,6 +98,7 @@ class Calc_2_View(TemplateView):
                 else:
                     cache.set("status", False)
                 cache.set("name_1", name_1)
+                print("name_1 = ", name_1) 
                 cache.set("name_2", name_2)
                 cache.set("res_1", res_1)
                 cache.set("res_2", res_2)
