@@ -12,7 +12,7 @@ from t_6693.mixins import ProjectLoginRequiredMixin  # type: ignore
 
 
 class CommCreateView(
-    ProjectLoginRequiredMixin, SuccessMessageMixin, CreateView
+    SuccessMessageMixin, CreateView
 ):
     model = Comm
     form_class = CommForm
