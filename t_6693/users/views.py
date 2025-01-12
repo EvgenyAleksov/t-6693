@@ -21,7 +21,7 @@ from t_6693.users.models import CustomUser  # type: ignore
 
 
 class UserCreateView(
-    ProjectLoginRequiredMixin, SuccessMessageMixin, CreateView
+    SuccessMessageMixin, CreateView
 ):
     model = CustomUser
     form_class = UserForm
