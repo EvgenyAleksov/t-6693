@@ -34,7 +34,7 @@ class UserCreateView(
         context["title"] = "Создать Пользователя"
         context["button_text"] = "Создать"
         # context["object"] = CustomUser.objects.count() + 1
-        context["object"] = 0
+        context["object"] = 1
         return context
 
 
@@ -47,8 +47,9 @@ class UserListView(ProjectLoginRequiredMixin, ListView):
         context = super().get_context_data(**kwargs)
         context["model"] = "User"
         context["title"] = "Пользователи"
-        context["rec_count"] = CustomUser.objects.count()
-        context["rec_limit"] = 3
+        # context["rec_count"] = CustomUser.objects.count()
+        context["rec_count"] = 0
+        context["rec_limit"] = 5
         context["result"] = CustomUser.objects.exclude(id=1)
         return context
 
