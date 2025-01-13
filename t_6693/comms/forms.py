@@ -6,12 +6,20 @@ from t_6693.comms.models import Comm  # type: ignore
 class CommForm(ModelForm):
     class Meta:
         model = Comm
-        fields = ("id", "descr")
-        labels = {"descr": "Описание"}
+        fields = ("id", "descr", "descr_man", "descr_wom")
+        labels = {
+            "descr": "Описание",
+            "descr_man": "Мужчина",
+            "descr_wom": "Женщина",
+        }
 
 
 class CommUpdateForm(ModelForm):
     class Meta:
         model = Comm
-        fields = ["descr"]
-        labels = {"descr": "Описание"}
+        fields = ["descr", "descr_man", "descr_wom"]
+        labels = {
+            "descr": "Описание",
+            "descr_man": "Мужчина",
+            "descr_wom": "Женщина",
+        }

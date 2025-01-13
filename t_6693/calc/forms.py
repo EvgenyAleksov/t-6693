@@ -4,6 +4,14 @@ from django import forms  # type: ignore
 
 
 class CalcForm_1(forms.Form):
+
+    sex = forms.IntegerField(
+        widget=forms.RadioSelect(
+            choices=((1, "Мужчина"), (2, "Женщина"))
+        ),
+        label=""
+    )
+
     name = forms.CharField(
         max_length=25, required=False, label="Имя", help_text="(по желанию)"
     )

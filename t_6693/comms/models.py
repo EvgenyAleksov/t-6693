@@ -4,7 +4,14 @@ from django.db import models  # type: ignore
 class Comm(models.Model):
 
     descr = models.TextField(
-        max_length=10000,
+        blank=True,
+    )
+
+    descr_man = models.TextField(
+        blank=True,
+    )
+
+    descr_wom = models.TextField(
         blank=True,
     )
 

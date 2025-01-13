@@ -3,14 +3,20 @@
 {% block href_create %}{% url 'comm_create' %}{% endblock %}
 
 {% block th %}
-<th>ЧБО</th>
-<th>Описание</th>
+<th class="col-1">№</th>
+<th class="col-3">Общее</th>
+<th class="col-3">Мужчина</th>
+<th class="col-3">Женщина</th>
 {% endblock %}
 
 
 {% block td %}
+
 <td align="center">{{ res.id }}</td>
 <td>{{ res.descr|linebreaksbr }}</td>
+<td>{{ res.descr_man|linebreaksbr }}</td>
+<td>{{ res.descr_wom|linebreaksbr }}</td>
+
 {% endblock %}
 
 {% block href_update %}{% url 'comm_update' res.id %}{% endblock %}

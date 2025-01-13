@@ -9,12 +9,10 @@ class Comp_Miss(models.Model):
     )
 
     descr_1 = models.TextField(
-        max_length=10000,
         blank=True,
     )
 
     descr_2 = models.TextField(
-        max_length=10000,
         blank=True,
     )
 

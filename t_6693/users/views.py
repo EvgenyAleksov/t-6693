@@ -47,8 +47,9 @@ class UserListView(ProjectLoginRequiredMixin, ListView):
         context["model"] = "User"
         context["title"] = "Пользователи"
         context["rec_count"] = CustomUser.objects.count()
-        context["rec_limit"] = 5
-        context["result"] = CustomUser.objects.exclude(id=1)
+        context["rec_limit"] = 3
+        # context["result"] = CustomUser.objects.exclude(id=1)
+        context["result"] = CustomUser.objects.all
         return context
 
 

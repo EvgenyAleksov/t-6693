@@ -21,16 +21,20 @@ class Calc_1_View(TemplateView):
 
             form = CalcForm_1(request.POST or None)
             if form.is_valid():
+                sex = form.cleaned_data.get("sex")
+                sex = "Мужчина" if sex == 1 else "Женщина"
                 name = form.cleaned_data.get("name")
                 bd = form.cleaned_data.get("birthday")
                 res = calc_num(bd)
                 context = {
                     "form": form,
+                    "sex": sex,
                     "name": name,
                     "res": res,
                     "submitbutton": submitbutton,
                     "resetbutton": resetbutton,
                 }
+                cache.set("sex", sex)
                 cache.set("name", name)
                 cache.set("res", res)
                 return render(request, self.template_name, context)
@@ -44,6 +48,7 @@ class Calc_1_PDF_View(PDFView):
 
     def get_context_data(self):
         context = {
+            "sex": cache.get("sex"),
             "name": cache.get("name"),
             "res": cache.get("res"),
             }

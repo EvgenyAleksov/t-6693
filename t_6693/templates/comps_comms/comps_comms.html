@@ -3,17 +3,15 @@
 {% block href_create %}{% url 'comp_comm_create' %}{% endblock %}
 
 {% block th %}
-<th>ЧБО 1-2</th>
-<th>Описание</th>
+<th class="col-1">1-2</th>
+<th class="col-5">Min</th>
+<th class="col-5">Max</th>
 {% endblock %}
 
 {% block td %}
 <td align="center">{{ res.name }}</td>
-<td>
-    {{ res.descr_1|linebreaksbr }}
-    <br>
-    {{ res.descr_2|linebreaksbr }}
-  </td>
+<td>{{ res.descr_1|linebreaksbr }}</td>
+<td>{{ res.descr_2|linebreaksbr }}</td>
 {% endblock %}
 
 {% block href_update %}{% url 'comp_comm_update' res.id %}{% endblock %}
