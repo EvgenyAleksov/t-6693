@@ -3,15 +3,15 @@ from django.db import models  # type: ignore
 
 class Comm(models.Model):
 
-    descr = models.TextField(
+    max_descr = models.TextField(
         blank=True,
     )
 
-    descr_man = models.TextField(
+    min_descr_man = models.TextField(
         blank=True,
     )
 
-    descr_wom = models.TextField(
+    min_descr_wom = models.TextField(
         blank=True,
     )
 

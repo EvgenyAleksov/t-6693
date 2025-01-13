@@ -6,7 +6,7 @@ from django.views.generic import (  # type: ignore
     UpdateView,
 )
 
-from t_6693.comms.forms import CommForm, CommUpdateForm  # type: ignore
+from t_6693.comms.forms import CommForm  # type: ignore
 from t_6693.comms.models import Comm  # type: ignore
 from t_6693.mixins import ProjectLoginRequiredMixin  # type: ignore
 
@@ -47,7 +47,7 @@ class CommUpdateView(
     ProjectLoginRequiredMixin, SuccessMessageMixin, UpdateView
 ):
     model = Comm
-    form_class = CommUpdateForm
+    form_class = CommForm
     template_name = "object.html"
     success_url = reverse_lazy("comm_list")
     success_message = "Запись успешно изменена"

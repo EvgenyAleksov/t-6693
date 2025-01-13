@@ -7,7 +7,7 @@ class CalcForm_1(forms.Form):
 
     sex = forms.IntegerField(
         widget=forms.RadioSelect(
-            choices=((1, "Мужчина"), (2, "Женщина"))
+            choices=((1, "Мужчина"), (2, "Женщина")),
         ),
         label=""
     )
@@ -34,6 +34,7 @@ class CalcForm_1(forms.Form):
 
 
 class CalcForm_2(forms.Form):
+
     name_1 = forms.CharField(
         max_length=25,
         required=False,
