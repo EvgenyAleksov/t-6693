@@ -11,21 +11,6 @@ from t_6693.inspirations.models import Inspiration  # type: ignore
 from t_6693.mixins import ProjectLoginRequiredMixin  # type: ignore
 
 
-class InspirationListView(ProjectLoginRequiredMixin, ListView):
-    model = Inspiration
-    template_name = "inspirations/inspirations.html"
-    # context_object_name = "inspirations"
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context["model"] = "Inspiration"
-        context["title"] = "Вдохновение"
-        context["rec_count"] = Inspiration.objects.count()
-        context["rec_limit"] = 22
-        context["result"] = Inspiration.objects.all
-        return context
-
-
 class InspirationCreateView(
     ProjectLoginRequiredMixin, SuccessMessageMixin, CreateView
 ):
@@ -41,7 +26,21 @@ class InspirationCreateView(
         context["button_text"] = "Создать"
         context["object"] = Inspiration.objects.count() + 1
         return context
- 
+
+
+class InspirationListView(ProjectLoginRequiredMixin, ListView):
+    model = Inspiration
+    template_name = "inspirations/inspirations.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["model"] = "Inspiration"
+        context["title"] = "Вдохновение"
+        context["rec_count"] = Inspiration.objects.count()
+        context["rec_limit"] = 22
+        context["result"] = Inspiration.objects.all
+        return context
+
 
 class InspirationUpdateView(
     ProjectLoginRequiredMixin, SuccessMessageMixin, UpdateView

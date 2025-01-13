@@ -8,10 +8,3 @@ class InspirationForm(ModelForm):
         model = Inspiration
         fields = ("id", "descr")
         labels = {"descr": "Описание"}
-
-
-class CommUpdateForm(ModelForm):
-    class Meta:
-        model = Inspiration
-        fields = ["descr"]
-        labels = {"descr": "Описание"}

@@ -25,13 +25,13 @@ class CommCreateView(
         context["title"] = "Создать ЧБО"
         context["button_text"] = "Создать"
         context["object"] = Comm.objects.count() + 1
+        # context["ur"] = "url 'comm_create'"
         return context
 
 
 class CommListView(ProjectLoginRequiredMixin, ListView):
     model = Comm
     template_name = "comms/comms.html"
-    # context_object_name = "comms"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)

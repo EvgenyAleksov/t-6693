@@ -8,10 +8,3 @@ class MissionForm(ModelForm):
         model = Mission
         fields = ("id", "descr")
         labels = {"descr": "Описание"}
-
-
-class MissionUpdateForm(ModelForm):
-    class Meta:
-        model = Mission
-        fields = ["descr"]
-        labels = {"descr": "Описание"}

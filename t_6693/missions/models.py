@@ -5,6 +5,7 @@ class Mission(models.Model):
 
     descr = models.TextField(
         blank=True,
+        unique=True,
     )
 
     def __str__(self):

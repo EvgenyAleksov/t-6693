@@ -6,24 +6,9 @@ from django.views.generic import (  # type: ignore
     UpdateView,
 )
 
-from t_6693.missions.forms import MissionForm, MissionUpdateForm  # type: ignore
+from t_6693.missions.forms import MissionForm  # type: ignore
 from t_6693.missions.models import Mission  # type: ignore
 from t_6693.mixins import ProjectLoginRequiredMixin  # type: ignore
-
-
-class MissionListView(ProjectLoginRequiredMixin, ListView):
-    model = Mission
-    template_name = "missions/missions.html"
-    # context_object_name = "missions"
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context["model"] = "Mission"
-        context["title"] = "Миссия"
-        context["rec_count"] = Mission.objects.count()
-        context["rec_limit"] = 9
-        context["result"] = Mission.objects.all
-        return context
 
 
 class MissionCreateView(
@@ -40,7 +25,20 @@ class MissionCreateView(
         context["title"] = "Создать Миссию"
         context["button_text"] = "Создать"
         context["object"] = Mission.objects.count() + 1
-        context["ur"] = "url 'mission_create'"
+        return context
+
+
+class MissionListView(ProjectLoginRequiredMixin, ListView):
+    model = Mission
+    template_name = "missions/missions.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["model"] = "Mission"
+        context["title"] = "Миссия"
+        context["rec_count"] = Mission.objects.count()
+        context["rec_limit"] = 9
+        context["result"] = Mission.objects.all
         return context
 
 
@@ -48,7 +46,7 @@ class MissionUpdateView(
     ProjectLoginRequiredMixin, SuccessMessageMixin, UpdateView
 ):
     model = Mission
-    form_class = MissionUpdateForm
+    form_class = MissionForm
     template_name = "object.html"
     success_url = reverse_lazy("mission_list")
     success_message = "Запись успешно изменена"
