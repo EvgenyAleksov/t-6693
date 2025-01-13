@@ -34,6 +34,10 @@ class Calc_1_View(TemplateView):
                     "submitbutton": submitbutton,
                     "resetbutton": resetbutton,
                 }
+                if request.user.is_authenticated is True:
+                    cache.set("status", True)
+                else:
+                    cache.set("status", False)
                 cache.set("sex", sex)
                 cache.set("name", name)
                 cache.set("res", res)
@@ -48,6 +52,7 @@ class Calc_1_PDF_View(PDFView):
 
     def get_context_data(self):
         context = {
+            "status": cache.get("status"),
             "sex": cache.get("sex"),
             "name": cache.get("name"),
             "res": cache.get("res"),
@@ -103,7 +108,6 @@ class Calc_2_View(TemplateView):
                 else:
                     cache.set("status", False)
                 cache.set("name_1", name_1)
-                print("name_1 = ", name_1) 
                 cache.set("name_2", name_2)
                 cache.set("res_1", res_1)
                 cache.set("res_2", res_2)

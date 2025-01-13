@@ -24,7 +24,8 @@
   <tbody>
     <tr>
       <td>
-        {% if user.is_authenticated %}
+        {% if status is True %}
+        <br>
         {{ res.comm.max_descr|linebreaksbr }}
         <br><br>
         {% endif %}
