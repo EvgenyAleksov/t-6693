@@ -38,6 +38,7 @@ ALLOWED_HOSTS = [
     'webserver',
     'localhost',
     '127.0.0.1'
+    'tinamagic.area.lv'
 ]
 
 RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')

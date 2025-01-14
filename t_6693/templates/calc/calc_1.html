@@ -15,7 +15,10 @@
         {{ sex }}
         <br><br>
         {% if name %}
-        {{ name }}
+        {{ name }}&nbsp;&nbsp;&nbsp;{{ bd }}
+        <br><br>
+        {% else %}
+        {{ bd }}
         <br><br>
         {% endif %}
         Число Сознания {{ res.num_consc }}

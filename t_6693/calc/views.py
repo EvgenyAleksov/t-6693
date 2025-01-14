@@ -30,6 +30,7 @@ class Calc_1_View(TemplateView):
                     "form": form,
                     "sex": sex,
                     "name": name,
+                    "bd": bd,
                     "res": res,
                     "submitbutton": submitbutton,
                     "resetbutton": resetbutton,
@@ -40,6 +41,7 @@ class Calc_1_View(TemplateView):
                     cache.set("status", False)
                 cache.set("sex", sex)
                 cache.set("name", name)
+                cache.set("bd", bd)
                 cache.set("res", res)
                 return render(request, self.template_name, context)
         else:
@@ -55,6 +57,7 @@ class Calc_1_PDF_View(PDFView):
             "status": cache.get("status"),
             "sex": cache.get("sex"),
             "name": cache.get("name"),
+            "bd": cache.get("bd"),
             "res": cache.get("res"),
             }
         return context
